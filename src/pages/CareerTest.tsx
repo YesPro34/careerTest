@@ -418,7 +418,7 @@ Consignes de style :
 
 // ─── PDF Export ──────────────────────────────────────────────────────────────
 
-function exportToPDF(resultRef: React.RefObject<HTMLDivElement>) {
+function exportToPDF(resultRef: React.RefObject<HTMLDivElement | null>) {
   const el = resultRef.current;
   if (!el) return;
   const printContents = el.innerHTML;
@@ -759,7 +759,7 @@ function ResultView({
 }: {
   scores: Record<RiasecKey, number>;
   onRetake: () => void;
-  resultRef: React.RefObject<HTMLDivElement>;
+  resultRef: React.RefObject<HTMLDivElement | null>;
   narrative: string;
   narrativeLoading: boolean;
   narrativeError: string | null;
